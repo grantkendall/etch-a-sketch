@@ -1,0 +1,17 @@
+.container {
+    height: 100vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 1;
+    border: 1px dotted black;
+    display: flex;
+}
+
+.square {
+    flex: 1;
+    border: 1px dotted red;
+}
