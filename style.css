@@ -7,11 +7,10 @@
 
 .row {
     flex: 1;
-    border: 1px dotted black;
     display: flex;
 }
 
 .square {
     flex: 1;
-    border: 1px dotted red;
+    border: 1px dotted black;
 }

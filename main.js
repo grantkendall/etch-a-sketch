@@ -1,35 +1,37 @@
+// TODO
+// Convert user input to a number
+// Restrict dimensions to not flex beyond 1:1
+// Dynamically reconstruct grid (default size based on user's window)
+
 const container = document.querySelector(".container");
 const btn = document.querySelector("button");
 
-btn.addEventListener("click", () => {
-    const row = document.createElement("div");
-    row.className = "row";
-    for (let i = 0; i < rowCounter; i++) {
-        addSquares(row);
-    }
-    container.appendChild(row);
-});
+document.addEventListener("mouseover", squareListener);
 
-function addSquares(x) {
-    const square = document.createElement("div");
-    square.className = "square";
-    x.appendChild(square);
-}
+function getUserInput() {
+    let input = prompt("How many rows and columns?");
+    constructGrid(input);
+};
 
-// x = user input
-function constructGrid(x) {
-    for (let i = 0; i < x; i++) {
+function constructGrid(input) {
+    for (let i = 0; i < input; i++) {
         const row = document.createElement("div");
         row.className = "row";
-        for (let i = 0; i < x; i++) {
+        for (let i = 0; i < input; i++) {
             const square = document.createElement("div");
             square.className = "square";
             row.appendChild(square);
         }
-
         container.appendChild(row);
     }
-}
+};
 
-constructGrid(100);
+function squareListener(event) {
+    let t = event.target;
+    if(t.className == "square") {
+        t.style.backgroundColor = "black";
+    }
+};
+
+getUserInput();
 
