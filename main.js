@@ -1,10 +1,7 @@
 const container = document.querySelector(".container");
 const btn = document.querySelector("button");
 
-let rowCounter = 0;
-
 btn.addEventListener("click", () => {
-    rowCounter++;
     const row = document.createElement("div");
     row.className = "row";
     for (let i = 0; i < rowCounter; i++) {
@@ -19,8 +16,20 @@ function addSquares(x) {
     x.appendChild(square);
 }
 
+// x = user input
+function constructGrid(x) {
+    for (let i = 0; i < x; i++) {
+        const row = document.createElement("div");
+        row.className = "row";
+        for (let i = 0; i < x; i++) {
+            const square = document.createElement("div");
+            square.className = "square";
+            row.appendChild(square);
+        }
 
+        container.appendChild(row);
+    }
+}
 
-// Get reference to number of rows
-// Append that many children to each row
-// Do I need to add rows to an array?
+constructGrid(100);
+
