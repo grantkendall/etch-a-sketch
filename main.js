@@ -6,10 +6,22 @@
 const container = document.querySelector(".container");
 const btn = document.querySelector("button");
 
+const rndmColors = [
+    "#000000",
+    "#222222",
+    "#444444",
+    "#666666",
+    "#888888",
+]
+
 document.addEventListener("mouseover", squareListener);
+btn.addEventListener("click", () => reconstructGrid());
 
 function getUserInput() {
-    let input = prompt("How many rows and columns?");
+    input = prompt("How many rows and columns?");
+    if (input > 100) {
+        input = 100;
+    }
     constructGrid(input);
 };
 
@@ -26,10 +38,15 @@ function constructGrid(input) {
     }
 };
 
+function reconstructGrid() {
+    container.replaceChildren();
+    getUserInput();
+}
+
 function squareListener(event) {
     let t = event.target;
     if(t.className == "square") {
-        t.style.backgroundColor = "black";
+        t.style.backgroundColor = rndmColors[Math.floor(Math.random() * rndmColors.length)];
     }
 };
 
