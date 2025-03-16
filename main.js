@@ -1,17 +1,20 @@
-// TODO
-// Convert user input to a number
-// Restrict dimensions to not flex beyond 1:1
-// Dynamically reconstruct grid (default size based on user's window)
-
 const container = document.querySelector(".container");
 const btn = document.querySelector("button");
 
-const rndmColors = [
+const grayscale = [
     "#000000",
     "#222222",
     "#444444",
     "#666666",
     "#888888",
+]
+
+const rainbow = [
+    "#88A5BF", // Blue-grey
+    "#2182BF", // Blue
+    "#88A61B", // Green
+    "#F28C0F", // Orange
+    "#F2620F", // Red-orange
 ]
 
 document.addEventListener("mouseover", squareListener);
@@ -46,7 +49,9 @@ function reconstructGrid() {
 function squareListener(event) {
     let t = event.target;
     if(t.className == "square") {
-        t.style.backgroundColor = rndmColors[Math.floor(Math.random() * rndmColors.length)];
+        // t.style.backgroundColor = "black";
+        // t.style.backgroundColor = rndmColors[Math.floor(Math.random() * rndmColors.length)];
+        t.style.backgroundColor = rainbow[Math.floor(Math.random() * rainbow.length)];
     }
 };
 

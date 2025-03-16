@@ -1,5 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
 .container {
-    height: 100vh;
+    /* height: 100vh; */
+    aspect-ratio: 1 / 1;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -13,4 +21,9 @@
 .square {
     flex: 1;
     border: 1px dotted black;
+    aspect-ratio: 1 / 1;
+}
+
+.square:hover {
+    opacity: 0.1;
 }
