@@ -1,5 +1,7 @@
-const container = document.querySelector(".container");
-const btn = document.querySelector("button");
+const container = document.querySelector(".grid-container");
+const resetBtn = document.querySelector(".reset-btn");
+const blueBtn = document.querySelector(".blue-btn");
+const rainbowBtn = document.querySelector(".rainbow-btn");
 
 const grayscale = [
     "#000000",
@@ -17,8 +19,16 @@ const rainbow = [
     "#F2620F", // Red-orange
 ]
 
+let palette = "black"; 
+
 document.addEventListener("mouseover", squareListener);
-btn.addEventListener("click", () => reconstructGrid());
+resetBtn.addEventListener("click", () => reconstructGrid());
+blueBtn.addEventListener("click", () => changePalette("blue"));
+rainbowBtn.addEventListener("click", () => changePalette("rainbow"));
+
+function changePalette(color) {
+    palette = color;
+}
 
 function getUserInput() {
     input = prompt("How many rows and columns?");
@@ -49,11 +59,13 @@ function reconstructGrid() {
 function squareListener(event) {
     let t = event.target;
     if(t.className == "square") {
-        // t.style.backgroundColor = "black";
-        // t.style.backgroundColor = rndmColors[Math.floor(Math.random() * rndmColors.length)];
-        t.style.backgroundColor = rainbow[Math.floor(Math.random() * rainbow.length)];
+        t.style.backgroundColor = palette;
+        if (palette == "rainbow") {
+            t.style.backgroundColor = rainbow[Math.floor(Math.random() * rainbow.length)];
+        } 
     }
 };
 
-getUserInput();
+// getUserInput();
+constructGrid(40);
 
